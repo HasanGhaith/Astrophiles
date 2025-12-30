@@ -1,0 +1,196 @@
+/* Reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Cal Sans", sans-serif;
+  color: #EAE0CF;
+}
+
+/* Background */
+.bg-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.logo-image {
+  position: fixed;
+  bottom: 160px;
+  right: 160px;
+  height: 55vh;
+  width: 25vw;
+  z-index: 5;
+  display: block;
+   background: rgba(255, 255, 255, 0.15);  /* semi-transparent white */
+  backdrop-filter: blur(4px);             /* frosted blur behind the logo */
+  -webkit-backdrop-filter: blur(6px);     /* for Safari */
+  border-radius: 28px;                     /* rounded edges */
+  padding: 8px;                            /* space around logo */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* optional soft shadow */
+  
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7); /* Slightly darker and more solid */
+  backdrop-filter: blur(10px); /* Adds a glassmorphism effect */
+  padding: 12px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Logo styling */
+.navbar .logo {
+  position: absolute;
+  left: 30px; /* keeps it on the left */
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.navbar button {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.25));
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  color: white;
+  padding: 10px 22px;
+  margin: 0 12px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.navbar button:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+
+/* Navbar2 */
+.navbar2 {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* space between buttons */
+  padding: 20px 0;
+  z-index: 1000;
+  background: transparent; /* fully transparent background */
+  pointer-events: none; /* so clicks only register on buttons */
+}
+
+.navbar2 a {
+  display: block;
+  padding: 14px 22px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.15); /* subtle glass effect */
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+  pointer-events: auto; /* re-enable click on buttons */
+}
+
+.navbar2 a:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Main button */     
+.button1 {
+  position: absolute;
+  bottom: 200px;
+  left: 210px;
+  transform: translateX(-50%);
+  background-color: #007ee6;
+  color: white;
+  padding: 16px 32px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 20;
+  transition: 0.3s;
+}
+
+.button1:hover {
+  background-color: #1A3D64;
+}
+
+
+.vertical-line {
+   position: absolute;
+  width: 2px;               /* thickness of the line */
+  height: 420px;             /* length of the line */
+  background-color: #fff;    /* line color */
+  top: 180px;            /* distance from top */
+  left: 120px;  
+}
+
+/* Sentences */
+.title{
+  position: absolute;
+  top: 240px;
+  left: 23%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 80px;
+  font-family: "Saira Stencil One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 70px;
+  text-align: left;
+  text-shadow: 2px 2px 8px black;
+  z-index: 15;
+}
+
+.sentence1 {
+  position: absolute;
+  bottom: 280px;
+  left: 435px;
+  transform: translateX(-50%);
+  color: #F4F4F4;
+  font-family:  sans-serif, sans-serif;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+    line-height: 28px;
+  font-size: 20px;
+  text-align: left;
+  text-shadow: 2px 2px 8px black;
+  z-index: 15;
+}
+
+.word {
+  position: absolute;
+  top: 195px;
+  left: 13%;
+  transform: translateX(-50%) scaleX(1.2) scaleY(1);
+  color: white;
+  font-family: "Russo One", sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  text-align: left;
+  text-shadow: 2px 2px 8px black;
+  z-index: 15;
+  }
+
+

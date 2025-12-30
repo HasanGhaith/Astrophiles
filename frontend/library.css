@@ -1,0 +1,194 @@
+.layout {
+  display: flex;
+}
+
+:root {
+  --main-font: Arial, sans-serif;
+  --font2: Verdana, sans-serif;
+}
+
+ body, .file-card, .sidebar a, h1, h2, h3, p {
+  font-family: var(--main-font);
+  font-family: var(--font2);
+
+}
+ 
+
+body {
+  background-color: #1e1e1e; /* dark gray */
+  color: white;               /* optional: makes text readable */
+  margin: 0;
+  font-family: var(--main-font);
+}
+
+/* Background */
+.bg-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex; 
+  flex-direction: column;
+}
+
+/* Sidebar title */
+.sidebar .logo {
+  color: white;
+  font-family: var(--font2t);                 /*      title font         */
+  margin-bottom: 30px;
+  font-size: 30px
+}
+
+/* Links */
+.sidebar a {
+  color: #ddd;
+  text-decoration: none;
+  margin: 10px 0;
+  font-size: 28px;
+  font-family: var(--main-font);
+  transition: 0.2s;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding-left: 16px;  /* reduce or increase as needed */
+  padding-right: 18px; /* keep right padding */
+  color: white;
+  transform: translateX(14px);
+}
+
+
+.sidebar b:hover,
+.sidebar b.active {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding-left: 16px;  /* reduce or increase as needed */
+  padding-right: 18px; /* keep right padding */
+  color: white;
+  transform: translateX(14px);
+}
+
+.library {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding-right: 170px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.file-card {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  padding: 18px;
+  color: white;
+  font-family: var(--main-font);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.file-card:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-4px);
+}
+
+
+
+.upload-card {
+  background: rgba(0, 200, 255, 0.2);
+  text-align: center;
+  cursor: pointer;
+}
+
+.upload-card:hover {
+  background: rgba(0, 200, 255, 0.35);
+}
+
+.main{
+  margin-left: 250px;   
+  padding: 40px;
+}
+
+
+/* Add to your CSS file */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal {
+  background: rgba(30,30,30,0.95);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal {
+  transform: translateY(0);
+}
+
+.modal button {
+  background: #4CAF50;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.2s;
+}
+
+.modal button:hover {
+  background: #45a049;
+}
+
+.modal a {
+  color: #1E90FF;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.modal a:hover {
+  text-decoration: underline;
+}
+
