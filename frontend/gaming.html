@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gaming | Astrophiles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="other.css">
+</head>
+<body>
+
+  <!-- Background -->
+  <img src="images/bgMC.png" class="bgMC" alt="Background">
+
+  <!-- Header -->
+  <header class="header">
+    <h1>Astrophiles Minecraft Server</h1>
+    <p>Where logic, creativity, and chaos coexist.</p>
+  </header>
+
+  <!-- Server Info -->
+  <section class="server-card">
+    <h2>Server Information</h2>
+
+    <div class="info">
+      <span>Server IP</span>
+      <code>AstrophilesMC.aternos.me</code>
+    </div>
+
+    <div class="info">
+      <span>Port</span>
+      <code>55257</code>
+    </div>
+
+    <div class="info">
+      <span>Version</span>
+      <code>Java/Bedrock Latest Version</code>
+    </div>
+  </section>
+
+  <!-- Join Section -->
+  <section class="join-card">
+    <h2>Join the Server</h2>
+
+    <label for="mcid">Minecraft Username</label>
+    <input type="text" id="mcid" placeholder="Enter your Minecraft ID">
+
+    <button>Request Access</button>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Astrophiles • Gaming Division</p>
+  </footer>
+
+<script>
+  const requestBtn = document.querySelector(".join-card button");
+  const mcInput = document.getElementById("mcid");
+
+  requestBtn.addEventListener("click", () => {
+    const username = mcInput.value.trim();
+
+    if (!username) {
+      alert("Please enter your Minecraft username.");
+      return;
+    }
+
+    alert("Request sent. An admin will review your access.");
+
+    mcInput.value = "";
+  });
+</script>
+
+<a href="index.html" class="site-logo">
+  ASTROPHILES
+</a>
+
+
+</body>
+</html>

@@ -1,0 +1,391 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  color: #ffffff;
+}
+
+/* Background */
+.bgMC {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.5);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 120px 20px 60px;
+}
+
+.header h1 {
+  font-size: 48px;
+  letter-spacing: 1px;
+}
+
+.header p {
+  margin-top: 12px;
+  opacity: 0.85;
+}
+
+/* Cards */
+.server-card,
+.join-card {
+  width: min(90%, 480px);
+  margin: 30px auto;
+  padding: 28px;
+  border-radius: 18px;
+
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+.server-card h2,
+.join-card h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Server info rows */
+.info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.info span {
+  opacity: 0.8;
+}
+
+.info code {
+  background: rgba(0,0,0,0.4);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Join section */
+.join-card label {
+  display: block;
+  margin-bottom: 8px;
+  opacity: 0.85;
+}
+
+.join-card input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.join-card button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.join-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 40px 0;
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+.status-msg {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 14px;
+  color: #a7f3d0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.site-logo {
+  position: fixed;
+  top: 18px;
+  left: 24px;
+  z-index: 1100;
+
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: white;
+
+  padding: 10px 18px;
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+
+  transition: all 0.25s ease;
+}
+
+.site-logo:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-2px);
+}
+/*    ......................................ABOUT...................................         */
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  color: #ffffff;
+}
+
+/* Background */
+.bgAbout {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.5);
+}
+
+/* Clickable Logo */
+.site-logo {
+  position: fixed;
+  top: 18px;
+  left: 24px;
+  z-index: 1100;
+
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: white;
+
+  padding: 10px 18px;
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+
+  transition: all 0.25s ease;
+}
+
+.site-logo:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-2px);
+}
+
+/* Hero Section */
+.about-hero {
+  text-align: center;
+  padding: 120px 20px 60px;
+}
+
+.about-hero h1 {
+  font-size: 48px;
+  letter-spacing: 1px;
+}
+
+.about-hero p {
+  margin-top: 12px;
+  opacity: 0.85;
+  font-size: 18px;
+}
+
+/* Cards */
+.about-card {
+  width: min(90%, 600px);
+  margin: 30px auto;
+  padding: 28px;
+  border-radius: 18px;
+
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+.about-card h2 {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.about-card p, .about-card ul {
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.about-card ul {
+  list-style: disc inside;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 40px 0;
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+
+/*.................................JOIN.......................................*/
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  color: #ffffff;
+}
+
+/* Background */
+.bgJoin{
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.5);
+}
+
+/* Logo */
+.site-logo {
+  position: fixed;
+  top: 18px;
+  left: 24px;
+  z-index: 1100;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  transition: all 0.25s ease;
+}
+
+.site-logo:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-2px);
+}
+
+/* Hero Section */
+.join-hero {
+  text-align: center;
+  padding: 120px 20px 60px;
+}
+
+.join-hero h1 {
+  font-size: 48px;
+  letter-spacing: 1px;
+}
+
+.join-hero p {
+  margin-top: 12px;
+  opacity: 0.85;
+  font-size: 18px;
+}
+
+/* Join Card */
+.join-card {
+  width: min(90%, 480px);
+  margin: 30px auto;
+  padding: 28px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+.join-card h2 {
+  margin-bottom: 24px;
+}
+
+.join-btn {
+  display: inline-block;
+  padding: 16px 36px;
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  transition: all 0.2s ease;
+}
+
+.join-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.note {
+  margin-top: 12px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 40px 0;
+  opacity: 0.7;
+  font-size: 14px;
+}
