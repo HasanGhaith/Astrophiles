@@ -6,68 +6,75 @@ const fs = require('fs');
 
 const app = express();
 app.use(cors());
+app.use(express.json());
 
 const uploadsDir = path.join(__dirname, 'uploads');
 const dataPath = path.join(__dirname, 'data.json');
 
-// Ensure uploads folder exists
+// Ensure folders/files exist
 if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir);
-
-// Ensure data.json exists
 if (!fs.existsSync(dataPath)) fs.writeFileSync(dataPath, '[]', 'utf8');
 
-// Serve frontend files from separate folder
+// Serve frontend
 app.use(express.static(path.join(__dirname, '../frontend')));
 
-// Optional: serve mathLibrary.html as default for /
+// Default page
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend', 'mathLibrary.html'));
 });
 
-// Return list of uploaded files (with title & cardId)
+// Get library data
 app.get('/files', (req, res) => {
-  try {
-    const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-    res.json(data);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Unable to read uploaded files' });
-  }
+  const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+  res.json(data);
 });
 
-// Multer storage setup
+// Multer setup
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, uploadsDir),
+  destination: uploadsDir,
   filename: (req, file, cb) => cb(null, file.originalname)
 });
 const upload = multer({ storage });
 
-// Handle file uploads
+// Upload files
 app.post('/upload', upload.array('files'), (req, res) => {
   const { title, cardId } = req.body;
-  if (!title || !cardId) return res.status(400).json({ error: 'Title and cardId are required' });
+  if (!title || !cardId) return res.sendStatus(400);
 
   const files = req.files.map(f => f.originalname);
+  const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 
-  // Read existing data
-  let currentData = [];
-  try {
-    currentData = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-  } catch (err) {
-    console.error("Error reading data.json:", err);
-  }
+  data.push({ title, cardId, files });
+  fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
 
-  // Add new entry
-  currentData.push({ title, cardId, files });
-
-  // Write back to data.json
-  fs.writeFileSync(dataPath, JSON.stringify(currentData, null, 2), 'utf8');
-
-  res.json({ message: 'Files uploaded!', files });
+  res.json({ success: true });
 });
 
-// Serve uploaded files for viewing/downloading
+// DELETE FILE (THIS IS WHAT YOU WERE MISSING)
+app.delete('/delete-file', (req, res) => {
+  const { filename, cardId } = req.body;
+
+  let data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+
+  data = data.map(entry => {
+    if (entry.cardId !== cardId) return entry;
+    return {
+      ...entry,
+      files: entry.files.filter(f => f !== filename)
+    };
+  }).filter(entry => entry.files.length > 0);
+
+  fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
+
+  const filePath = path.join(uploadsDir, filename);
+  if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+
+  res.json({ success: true });
+});
+
+// Serve uploads
 app.use('/uploads', express.static(uploadsDir));
 
-// Start server
-app.listen(3000, () => console.log('Server running on http://localhost:3000'));
+app.listen(3000, () =>
+  console.log('✅ Server running at http://localhost:3000')
+);
