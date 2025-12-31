@@ -3,68 +3,47 @@ const uploadCard = document.getElementById('uploadCard');
 const fileInput = document.getElementById('fileInput');
 const selectBtn = document.getElementById('selectBtn');
 
-// Trigger file picker when button is clicked
 selectBtn.addEventListener('click', () => fileInput.click());
 
-// Handle file selection
 fileInput.addEventListener('change', async () => {
   const files = fileInput.files;
   if (!files.length) return;
 
-  let title = prompt("Enter a title for this folder/document (max 20 characters):");
-  if (!title) return alert("Title is required!");
-  if (title.length > 20) return alert("Title must be 20 characters or fewer");
+  const title = prompt("Enter title (max 20 chars):");
+  if (!title || title.length > 20) return;
 
-  // Sanitize title for safe DOM ID
   const cardId = title.replace(/\W/g, '_');
 
   const formData = new FormData();
-  for (const file of files) formData.append('files', file);
+  [...files].forEach(f => formData.append('files', f));
   formData.append('title', title);
   formData.append('cardId', cardId);
 
-  try {
-    await fetch('http://localhost:3000/upload', {
-      method: 'POST',
-      body: formData
-    });
+  await fetch('/upload', { method: 'POST', body: formData });
 
-    // Add the card to the page
-    addCard(title, files, cardId);
-    fileInput.value = ''; // reset input
-  } catch (err) {
-    console.error(err);
-    alert("Upload failed!");
-  }
+  addCard(title, [...files].map(f => f.name), cardId);
+  fileInput.value = '';
 });
 
-// Function to create a card
 function addCard(title, files, cardId) {
-  if (document.getElementById(cardId)) return; // avoid duplicates
+  if (document.getElementById(cardId)) return;
 
   const card = document.createElement('div');
   card.className = 'file-card';
   card.id = cardId;
-  card.dataset.files = JSON.stringify(Array.from(files).map(f => f.name));
+  card.dataset.files = JSON.stringify(files);
 
-  const h3 = document.createElement('h3');
-  h3.textContent = title;
-  card.appendChild(h3);
+  card.innerHTML = `
+    <h3>${title}</h3>
+    <p>${files.length} file(s)</p>
+  `;
 
-  const p = document.createElement('p');
-  p.textContent = `${files.length} file(s) uploaded`;
-  card.appendChild(p);
-
-  // Click event to show modal
-  card.addEventListener('click', () => showDetails(card));
-
+  card.onclick = () => showDetails(card);
   library.insertBefore(card, uploadCard);
 }
 
-// Show modal with file info
 function showDetails(card) {
-  const existingOverlay = document.querySelector('.modal-overlay');
-  if (existingOverlay) existingOverlay.remove();
+  document.querySelector('.modal-overlay')?.remove();
 
   const overlay = document.createElement('div');
   overlay.className = 'modal-overlay active';
@@ -76,58 +55,61 @@ function showDetails(card) {
   modal.innerHTML = `<h2>${card.querySelector('h3').textContent}</h2>`;
 
   files.forEach(filename => {
-    const fileDiv = document.createElement('div');
-    fileDiv.style.margin = '10px 0';
+    const row = document.createElement('div');
+    row.style.display = 'flex';
+    row.style.gap = '10px';
+    row.style.alignItems = 'center';
 
-    const name = document.createElement('p');
-    name.textContent = filename;
-    fileDiv.appendChild(name);
+    row.innerHTML = `
+      <span>${filename}</span>
+      <a href="/uploads/${filename}" target="_blank">View</a>
+      <a href="/uploads/${filename}" download>Download</a>
+    `;
 
-    const view = document.createElement('a');
-    view.href = `http://localhost:3000/uploads/${filename}`;
-    view.target = '_blank';
-    view.textContent = 'View';
-    view.style.marginRight = '10px';
-    fileDiv.appendChild(view);
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = 'Remove';
 
-    const download = document.createElement('a');
-    download.href = `http://localhost:3000/uploads/${filename}`;
-    download.download = filename;
-    download.textContent = 'Download';
-    fileDiv.appendChild(download);
+    removeBtn.onclick = async (e) => {
+      e.stopPropagation();
 
-    modal.appendChild(fileDiv);
+      await fetch('/delete-file', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ filename, cardId: card.id })
+      });
+
+      row.remove();
+
+      const updated = files.filter(f => f !== filename);
+      card.dataset.files = JSON.stringify(updated);
+
+      if (!updated.length) {
+        card.remove();
+        overlay.remove();
+      }
+    };
+
+    row.appendChild(removeBtn);
+    modal.appendChild(row);
   });
 
-  // Close button
-  const closeBtn = document.createElement('button');
-  closeBtn.textContent = 'Close';
-  closeBtn.addEventListener('click', () => overlay.remove());
-  modal.appendChild(closeBtn);
+  const close = document.createElement('button');
+  close.textContent = 'Close';
+  close.onclick = () => overlay.remove();
+  modal.appendChild(close);
 
   overlay.appendChild(modal);
   document.body.appendChild(overlay);
-
-  // Close when clicking outside modal
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) overlay.remove();
-  });
 }
 
-// On page load, fetch existing uploaded files
+// Load saved data
 document.addEventListener('DOMContentLoaded', async () => {
-  try {
-    const res = await fetch('http://localhost:3000/files');
-    const data = await res.json();
+  const res = await fetch('/files');
+  const data = await res.json();
 
-    // data should be array of { title, cardId, files }
-    data.forEach(entry => {
-      const filesArray = entry.files.map(f => new File([], f));
-      addCard(entry.title, filesArray, entry.cardId);
-    });
-  } catch (err) {
-    console.error(err);
-  }
+  data.forEach(entry =>
+    addCard(entry.title, entry.files, entry.cardId)
+  );
 });
 
 //  cd C:\Users\A\Desktop\GCweb\myLibraryBackend
