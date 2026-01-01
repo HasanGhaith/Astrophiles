@@ -12,5 +12,21 @@
     "files": [
       "oldLogo.jpeg"
     ]
+  },
+  {
+    "title": "testtt",
+    "cardId": "math_testtt",
+    "category": "math",
+    "files": [
+      "1767290193392-nobg.jfif"
+    ]
+  },
+  {
+    "title": "physics test",
+    "cardId": "physics_physics_test",
+    "category": "physics",
+    "files": [
+      "1767290214774-oldLogo.jpeg"
+    ]
   }
 ]
