@@ -15,7 +15,7 @@ const dataPath = path.join(__dirname, 'data.json');
 if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir);
 if (!fs.existsSync(dataPath)) fs.writeFileSync(dataPath, '[]');
 
-app.use(express.static(path.join(__dirname, '../frontend')));
+app.use(express.static(path.join(__dirname, '../docs')));
 app.use('/uploads', express.static(uploadsDir));
 
 // multer
@@ -67,4 +67,4 @@ app.delete('/delete-file', (req, res) => {
 
 app.listen(3000, () =>
   console.log('✅ Server running at http://localhost:3000')
-);
+);  
