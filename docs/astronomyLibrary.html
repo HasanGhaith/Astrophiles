@@ -3,6 +3,8 @@
 
 <html>
   <head>
+
+    <body data-category="astronomy"></body>
     <meta charset="UTF-8" />
     <title>Astronomy Library</title>
 
@@ -19,6 +21,8 @@
   </head>
 
   <body>
+    
+    <body data-category="astronomy"></body>
     <!-- Layout wrapper -->
     <div class="layout">
 
@@ -26,9 +30,9 @@
       <nav class="sidebar">
         <h2 class="logo">Library</h2>
 
-        <a href="mathLibrary.html" class="active">Math</a>
+        <a href="mathLibrary.html">Math</a>
         <a href="physicsLibrary.html">Physics</a>
-        <a href="astronomyLibrary.html">Astronomy</a>
+        <a href="astronomyLibrary.html" class="active" >Astronomy</a>
         <a href="index.html">Home</a>
       </nav> 
 
@@ -50,8 +54,12 @@
 
 
     <!-- JS for upload functionality -->
-    <script src="libraryAstronomy.js"></script>
+    <script src="library.js"></script>
   </body>
 </html>
 
 
+<script>
+  // Set this to the current library
+  let CURRENT_CATEGORY = 'physics'; // or 'astronomy' on the other page
+</script>

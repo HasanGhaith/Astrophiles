@@ -2,9 +2,11 @@
 
 
 <html>
+
+
   <head>
     <meta charset="UTF-8" />
-    <title>Physics Library</title>
+    <title>Math Library</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400&display=swap" rel="stylesheet">
@@ -13,12 +15,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="library.css">
 
-    <!-- background -->
-     <img src="images\bg.jpg" class="bg-img">
-
   </head>
 
   <body>
+<body data-category="math"></body>
+    <!-- background -->
+     <img src="images\bg.jpg" class="bg-img">
     <!-- Layout wrapper -->
     <div class="layout">
 
@@ -26,10 +28,11 @@
       <nav class="sidebar">
         <h2 class="logo">Library</h2>
 
-        <a href="mathLibrary.html" class="active">Math</a>
-        <a href="physicsLibrary.html">Physics</a>
-        <a href="astronomyLibrary.html">Astronomy</a>
+        <a href="mathLibrary.html"  class="active">Math</a>
+        <a href="physicsLibrary.html" >Physics</a>
+        <a href="astronomyLibrary.html" >Astronomy</a>
         <a href="index.html">Home</a>
+      </nav> 
 
       <!-- Main content -->
       <div class="main">
@@ -49,8 +52,12 @@
 
 
     <!-- JS for upload functionality -->
-    <script src="libraryPhysics.js"></script>
+    <script src="library.js"></script>
   </body>
 </html>
 
 
+<script>
+  // Set this to the current library
+  let CURRENT_CATEGORY = 'physics'; // or 'astronomy' on the other page
+</script>
