@@ -6,6 +6,7 @@ const selectBtn = document.getElementById('selectBtn');
 // THIS COMES FROM HTML
 const CURRENT_CATEGORY = document.body.dataset.category;
 
+
 selectBtn.onclick = () => fileInput.click();
 
 fileInput.onchange = async () => {

@@ -4,6 +4,9 @@ const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 
+import cors from 'cors';
+app.use(cors());
+
 const app = express();
 app.use(cors());
 app.use(express.json());
