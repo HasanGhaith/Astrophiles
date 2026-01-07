@@ -1,40 +1,10 @@
 [
   {
-    "title": "NebulaFormulaGreg",
-    "cardId": "NebulaFormulaGreg",
-    "files": [
-      "Radius of a collapsing nebula Gregs approach.pdf"
-    ]
-  },
-  {
-    "title": "test",
-    "cardId": "test",
-    "files": [
-      "oldLogo.jpeg"
-    ]
-  },
-  {
-    "title": "testtt",
-    "cardId": "math_testtt",
+    "title": "Greg's Neb Formula",
+    "cardId": "math_Greg_s_Neb_Formula",
     "category": "math",
     "files": [
-      "1767290193392-nobg.jfif"
-    ]
-  },
-  {
-    "title": "physics test",
-    "cardId": "physics_physics_test",
-    "category": "physics",
-    "files": [
-      "1767290214774-oldLogo.jpeg"
-    ]
-  },
-  {
-    "title": "test2",
-    "cardId": "math_test2",
-    "category": "math",
-    "files": [
-      "1767623172632-316418.jpg"
+      "1767796983553-Radius of a collapsing nebula Gregs approach.pdf"
     ]
   }
 ]

@@ -1,4 +1,6 @@
-/* Reset */
+/* =========================
+   RESET & BASE
+========================= */
 html, body {
   margin: 0;
   padding: 0;
@@ -7,32 +9,21 @@ html, body {
   color: #EAE0CF;
 }
 
-/* Background */
+/* =========================
+   BACKGROUND
+========================= */
 .bg-img {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100vw;
   height: 100vh;
   object-fit: cover;
   z-index: -1;
 }
 
-.logo-image {
-  position: fixed;
-  bottom: 160px;
-  right: 160px;
-  height: 55vh;
-  width: 25vw;
-  z-index: 5;
-  display: block;
-   /*background: rgba(255, 255, 255, 0.15);  /* semi-transparent white */
-  /*backdrop-filter: blur(4px);             /* frosted blur behind the logo */
-/*  padding: 8px;                            /* space around logo */
-  /*box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* optional soft shadow */ 
-  
-  
-}
+/* =========================
+   NAVBAR
+========================= */
 .navbar {
   position: fixed;
   top: 0;
@@ -40,46 +31,130 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.7); /* Slightly darker and more solid */
-  backdrop-filter: blur(10px); /* Adds a glassmorphism effect */
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
   padding: 12px 0;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
   z-index: 1000;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Logo styling */
 .navbar .logo {
   position: absolute;
-  left: 30px; /* keeps it on the left */
+  left: 30px;
   color: #fff;
   font-size: 24px;
   font-weight: bold;
-  letter-spacing: 1px;
 }
 
 .navbar button {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.25));
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.25));
+  border: 1px solid rgba(255,255,255,0.7);
   color: white;
   padding: 10px 22px;
   margin: 0 12px;
   font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
   border-radius: 12px;
-  transition: all 0.3s ease;
+  cursor: pointer;
+  transition: 0.3s;
   backdrop-filter: blur(5px);
 }
 
 .navbar button:hover {
-  background: rgba(255, 255, 255, 0.35);
-  transform: translateY(-2px); /* Slight lift on hover */
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+  background: rgba(255,255,255,0.35);
+  transform: translateY(-2px);
 }
 
+/* =========================
+   HERO GRID (CORE FIX)
+========================= */
+.hero {
+  min-height: calc(100vh - 70px); /* navbar height */
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 60px;
+  padding: 0 8vw;
+  margin-top: 70px; /* same as navbar height */
+}
 
-/* Navbar2 */
+/* =========================
+   HERO LEFT
+========================= */
+.hero-left {
+  position: relative;
+}
+
+.vertical-line {
+  position: absolute;
+  left: -30px;
+  top: -20px;
+  width: 2px;
+  height: 500px;
+  background: white;
+}
+
+.word {
+  font-family: "Russo One", sans-serif;
+  font-size: 36px;
+  margin-bottom: -50px;
+  text-shadow: 2px 2px 8px black;
+}
+
+.title {
+  font-family: "Saira Stencil One", sans-serif;
+  font-weight: 400;
+  font-size: clamp(48px, 6vw, 80px);
+  line-height: 0.9;
+  margin-bottom: 30px;
+  color: white;
+  text-shadow: 2px 2px 8px black;
+}
+
+.sentence1 {
+  font-size: 20px;
+  line-height: 1.6;
+  max-width: 520px;
+  margin-bottom: 40px;
+  color: #F4F4F4;
+  text-shadow: 2px 2px 8px black;
+}
+
+/* =========================
+   HERO BUTTON
+========================= */
+.button1 {
+  background-color: #007ee6;
+  color: white;
+  padding: 16px 36px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button1:hover {
+  background-color: #1A3D64;
+}
+
+/* =========================
+   HERO RIGHT
+========================= */
+.hero-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-image {
+  width: min(420px, 80%);
+  height: auto;
+  z-index: 5;
+}
+
+/* =========================
+   NAVBAR 2 (BOTTOM)
+========================= */
 .navbar2 {
   position: fixed;
   bottom: 40px;
@@ -91,110 +166,40 @@ html, body {
 }
 
 .nav2-btn {
-  padding: 18px 52px;      /* bigger */
+  padding: 18px 52px;
   font-family: "Russo One", sans-serif;
   font-size: 18px;
   letter-spacing: 2px;
   text-transform: uppercase;
-
   color: #ffffff;
   text-decoration: none;
-
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.35);
   border-radius: 50px;
-
   backdrop-filter: blur(8px);
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
-
-  transition: all 0.35s ease;
+  transition: 0.35s;
 }
-
 
 .nav2-btn:hover {
-  background: rgba(255, 255, 255, 0.22);
+  background: rgba(255,255,255,0.22);
   transform: translateY(-4px) scale(1.04);
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
 }
 
-
-
-/* Main button */     
-.button1 {
-  position: absolute;
-  bottom: 200px;
-  left: 210px;
-  transform: translateX(-50%);
-  background-color: #007ee6;
-  color: white;
-  padding: 16px 32px;
-  font-size: 18px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  z-index: 20;
-  transition: 0.3s;
-}
-
-.button1:hover {
-  background-color: #1A3D64;
-}
-
-
-.vertical-line {
-   position: absolute;
-  width: 2px;               /* thickness of the line */
-  height: 420px;             /* length of the line */
-  background-color: #fff;    /* line color */
-  top: 180px;            /* distance from top */
-  left: 120px;  
-}
-
-/* Sentences */
-.title{
-  position: absolute;
-  top: 240px;
-  left: 23%;
-  transform: translateX(-50%);
-  color: white;
-  font-size: 80px;
-  font-family: "Saira Stencil One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 70px;
-  text-align: left;
-  text-shadow: 2px 2px 8px black;
-  z-index: 15;
-}
-
-.sentence1 {
-  position: absolute;
-  bottom: 280px;
-  left: 435px;
-  transform: translateX(-50%);
-  color: #F4F4F4;
-  font-family:  sans-serif, sans-serif;
-  letter-spacing: 0.5px;
-  font-weight: 400;
-    line-height: 28px;
-  font-size: 20px;
-  text-align: left;
-  text-shadow: 2px 2px 8px black;
-  z-index: 15;
-}
-
-.word {
-  position: absolute;
-  top: 195px;
-  left: 13%;
-  transform: translateX(-50%) scaleX(1.2) scaleY(1);
-  color: white;
-  font-family: "Russo One", sans-serif;
-  font-weight: 400;
-  font-size: 36px;
-  text-align: left;
-  text-shadow: 2px 2px 8px black;
-  z-index: 15;
+/* =========================
+   RESPONSIVE (MOBILE)
+========================= */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
 
+  .vertical-line {
+    display: none;
+  }
 
+  .sentence1 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

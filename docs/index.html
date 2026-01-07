@@ -1,67 +1,67 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Astrophiles</title>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Astrophiles</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400&display=swap" rel="stylesheet">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Anta&family=Russo+One&family=Saira+Stencil+One&display=swap');
-</style>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400&display=swap" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Anta&family=Russo+One&family=Saira+Stencil+One&display=swap');
+  </style>
 
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="library.css">
+</head>
 
+<body>
 
-   <!-- Link to external CSS -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="library.css">
+  <!-- Background -->
+  <img src="images/bgHomePage.png" class="bg-img">
 
-    <img src="images\bgHomePage.png" class="bg-img">
-    <img src="images\newlogo.png" class="logo-image">
-    
-  </head>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">Astrophiles</div>
+    <button  onclick="window.location.href='events.html'" >Events</button>
+    <button  onclick="window.location.href='contact.html'" >Contact</button>
+    <button onclick="window.location.href='about.html'">About</button>
+    <button onclick="window.location.href='join.html'">Connect</button>
+  </div>
 
-  <body>
+  <!-- HERO SECTION -->
+  <section class="hero">
 
+    <!-- LEFT COLUMN -->
+    <div class="hero-left">
+      <div class="word">The</div>
+      <div class="vertical-line"></div>
 
-<div class="vertical-line"></div>
+      <h1 class="title">
+        Astrophiles <br> Community
+      </h1>
 
-    <!-- Navbar 1 -->
-    <div class="navbar">
-      <div class="logo">Astrophiles</div>
-      <button>Events</button>
-      <button>Contact</button>
-      <button onclick="window.location.href='about.html'">About</button>
-      <button onclick="window.location.href='join.html'">Connect</button>
+      <p class="sentence1">An international collective devoted to 
+        the study and discussion of astronomy, physics, and mathematics
+        through shared inquiry, discussion and learning.
+      </p>
+
+      <button class="button1" onclick="window.location.href='join.html'">
+        Join
+      </button>
     </div>
 
-   <!-- Navbar 2 -->
-<div class="navbar2">
-  <a href="mathLibrary.html" class="nav2-btn">Library</a>
-  <a href="gaming.html" class="nav2-btn">Gaming</a>
-</div>
-
-    <!-- Floating button -->
-    <button class="button1" onclick="window.location.href='join.html'">Join</button>
-    
-
-    
-
-    <!-- title-->
-
-    <div class="title">Astrophiles <Br> Community</div>
-
-    <!-- Sentence 1 -->
-    <div class="sentence1">
-        An international collective devoted to the study and  <br>
-        discussion of astronomy, physics, and mathematics through  <br>
-        shared inquiry, discussion and learning.
+    <!-- RIGHT COLUMN -->
+    <div class="hero-right">
+      <img src="images/newlogo.png" class="logo-image">
     </div>
 
-    <!-- word -->
-    <div class="word">The</div>
+  </section>
 
-  </body>
+  <!-- Bottom Navbar -->
+  <div class="navbar2">
+    <a href="mathLibrary.html" class="nav2-btn">Library</a>
+    <a href="gaming.html" class="nav2-btn">Gaming</a>
+  </div>
+
+</body>
 </html>
-
-
