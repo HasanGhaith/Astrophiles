@@ -254,6 +254,8 @@ html, body {
     grid-template-columns: 1fr;
     margin-top: 40px;
     padding: 0 6vw;
+    padding-top: 60px;   /* space below top bar */
+    padding-bottom: 140px; /* space above bottom nav */
     gap: 28px;
     text-align: center;
   }
