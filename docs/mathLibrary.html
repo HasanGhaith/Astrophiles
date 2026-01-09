@@ -2,8 +2,7 @@
 
 
 <html>
-
-
+ 
   <head>
     <meta charset="UTF-8" />
     <title>Math Library</title>
@@ -15,12 +14,13 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="library.css">
 
+    <!-- background -->
+     <img src="images\bg.jpg" class="bg-img">
+
   </head>
 
   <body>
-<body data-category="math"></body>
-    <!-- background -->
-     <img src="images\bg.jpg" class="bg-img">
+     <body data-category="math">
     <!-- Layout wrapper -->
     <div class="layout">
 
@@ -28,15 +28,15 @@
       <nav class="sidebar">
         <h2 class="logo">Library</h2>
 
-        <a href="mathLibrary.html"  class="active">Math</a>
-        <a href="physicsLibrary.html" >Physics</a>
+        <a href="mathLibrary.html" class="active" >Math</a>
+        <a href="physicsLibrary.html"  >Physics</a>
         <a href="astronomyLibrary.html" >Astronomy</a>
         <a href="index.html">Home</a>
       </nav> 
 
       <!-- Main content -->
       <div class="main">
-        <h1>MATH</h1>
+        <h1>Math</h1>
 
         <div class="library" id="library">
           <!-- Upload card always present -->
@@ -56,8 +56,8 @@
   </body>
 </html>
 
-
 <script>
   // Set this to the current library
-  let CURRENT_CATEGORY = 'physics'; // or 'astronomy' on the other page
+  let CURRENT_CATEGORY = 'math'; // or 'astronomy' on the other page
 </script>
+
